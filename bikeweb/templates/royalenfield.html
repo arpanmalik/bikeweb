@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <title>Bullet</title>
+    <style type="text/css">
+
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">Bike Drovers</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/register">Register</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Login</a>
+      </li>
+    
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <h2 style="text-align:center;">Royal Enfield Bikes</h2>
+  <p style="text-align:center;">The first Royal Enfield motorcycle was built in 1901. The Enfield Cycle Company is responsible for the design and original production of the Royal Enfield Bullet, the longest-lived motorcycle design in hstory. Royal Enfield bike price starts from Rs. 1,24,311. It offers seven models in India and considered as a luxurious brand</p>
+  <div class="row">
+    <div class="col">
+      <img class="image" src="https://imgd.aeplcdn.com/393x221/bw/models/royal-enfield-classic-350-single-channel-abs--bs-vi20200303121804.jpg?q=85" >
+      <h5>Royal Enfield Classic</h5>
+      <h5>₹{{price}}   </h5>
+      <a href="/classic">Detailed Information</a>
+    </div>
+    <div class="col">
+      <img class="image"  src="https://imgd.aeplcdn.com/393x221/bw/models/royal-enfield-bullet-350-ks--x--efi-bs-vi20200401130113.jpg?q=85">
+      <h5>Royal Enfield Bullet</h5>
+      <h5>₹{{price2}}</h5>
+      <a href="/bullet">Detailed Information</a>
+    </div>
+    <div class="col">
+      <img class="image"  src="https://imgd.aeplcdn.com/393x221/bw/models/royal-enfield-himalayan-standard--bs-vi20200120132350.jpg?q=85">
+      <h5>Royal Enfield Himalayan</h5>
+      <h5>₹{{price3}}</h5>
+      <a href="/himalayan">Detailed Information</a>
+    </div>
+    <div class="col">
+      <img class="image"  src="https://imgd.aeplcdn.com/393x221/bw/models/royal-enfield-meteor-350-fireball20201106124644.jpg?q=85">
+      <h5>Royal Enfield Meteor 350</h5>
+      <h5>₹{{price4}}</h5>
+      <a href="/meteor">Detailed Information</a>
+    </div>
+    <div class="col">
+      <img class="image"  src="https://imgd.aeplcdn.com/393x221/bw/models/royal-enfield-meteor-350-fireball20201106124644.jpg?q=85">
+      <h5>Royal Enfield Continental GT 650</h5>
+      <h5>₹{{price5}}</h5>
+      <a href="/himalayan">Detailed Information</a>
+    </div>
+    <div class="col">
+      <img class="image"  src="https://imgd.aeplcdn.com/393x221/bw/models/royal-enfield-interceptor-650-standard--bs-vi20200212180615.jpg?q=85">
+      <h5>Royal Enfield Interceptor 650</h5>
+      <h5>₹{{price6}}</h5>
+      <a href="/himalayan">Detailed Information</a>
+    </div>
+  </div>
+</div>
+  <div class="container" style="margin:20px;text-align:center;">
+    <h3> You can search for these</h3>
+    <ul class="bike-list" style="text-align:center;">
+      <li>Royal Enfield Classic 350     ---> classic</li>
+      <li>Royal Enfield Bullet 350      ---> bullet</li>
+      <li>Royal Enfield Himalayan       ---> himalayan</li>
+      <li>Royal Enfield Interceptor 650 ---> interceptor</li>
+      <li>Royal Enfield Meteor 350      ---> meteor-350</li>
+      <li>Royal Enfield Continental GT 650-->continental-gt</li>
+    </ul>
+  </div>
+  <div class="container" style="margin-top:20px;">
+    <div class="jumbotron" style="margin-top:100px;"> 
+ <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Search bikes</legend>
+                <div class="form-group">
+                    {{ form.item.label(class="form-control-label") }}
+               <!--  {{form.item(class="form-control form-control-lg")}}  -->
+                    {% if form.item.errors %}
+                        {{ form.item(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.item.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.item(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+              </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-secondary") }}
+            </div>
+        </form>
+      </div>
+    </div>
+    <p>₹{{price_gen}}<br> {{cc_gen}} {{bhp_gen}} {{weight_gen}}</p>
+  </div>
+</div>
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
